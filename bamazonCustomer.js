@@ -77,13 +77,13 @@ function choose() {
                     if (quantity <= data[0].stock_quantity) {
                         console.log("Congratulations! The product you ordered is in stock. Placing order now.");
 
-                        var updateQueryStr = "UPDATE inventory SET stock_quantity = ? WHERE item_id = ?";
+                        var updateQueryStr = "UPDATE inventory SET stock_quantity = " + data[0].stock_quantity + " WHERE item_id = " + item;
                         console.log("updateQueryStr = " + updateQueryStr);
 
                         // update stock quantity
-                        connection.query(updateQueryStr, { data[0].stock_quantity - quantity }, { item }, function (err, data) {
+                        connection.query(updateQueryStr, function (err, response) {
                             if (err) throw err;
-
+                            // console.log(data)
                             console.log("Your order has been placed. Your order total is: $" + data[0].price * quantity);
                             console.log("Thank you for shopping at Bamazon!");
                             console.log("\n------------- BAM ON YA! --------------");

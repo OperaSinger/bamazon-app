@@ -1,2 +1,4 @@
-# bamazon-app
-An App that functions like a shopping app managing sales and inventory
+# bamazon-app #
+An app that handles, at the very least, a shopping experience for the user
+
+# 
